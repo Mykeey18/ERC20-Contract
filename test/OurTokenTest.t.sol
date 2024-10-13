@@ -7,16 +7,11 @@ import {DeployOurToken} from "script/DeployOurToken.s.sol";
 import {OurToken} from "src/OurToken.sol";
 import {ZkSyncChainChecker} from "lib/foundry-devops/src/ZkSyncChainChecker.sol";
 
-
 contract OurTokenTest is Test, ZkSyncChainChecker {
     OurToken public ourToken;
     DeployOurToken public deployer;
 
-    event Transfer(
-        address indexed from,
-        address indexed to,
-        uint256 value
-    );
+    event Transfer(address indexed from, address indexed to, uint256 value);
 
     address bob = makeAddr("bob");
     address alice = makeAddr("alice");
@@ -91,8 +86,6 @@ contract OurTokenTest is Test, ZkSyncChainChecker {
 
         // Transfer tokens from user1 to user2
         vm.prank(bob);
-        ourToken.transfer( alice, 500);
+        ourToken.transfer(alice, 500);
     }
-
-    
 }
